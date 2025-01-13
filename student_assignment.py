@@ -6,6 +6,8 @@ from model_configurations import get_model_configuration
 from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage
 
+import re
+from langchain_core.output_parsers import JsonOutputParser
 
 gpt_chat_version = 'gpt-4o'
 gpt_config = get_model_configuration(gpt_chat_version)
