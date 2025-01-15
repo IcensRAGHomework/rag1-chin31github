@@ -8,6 +8,7 @@ from langchain_core.messages import HumanMessage
 
 import re
 from langchain_core.output_parsers import JsonOutputParser
+import sys
 
 gpt_chat_version = 'gpt-4o'
 gpt_config = get_model_configuration(gpt_chat_version)
@@ -67,3 +68,7 @@ def demo(question):
     response = llm.invoke([message])
     
     return response
+    pass
+    
+#generate_hw01(sys.argv[1])
+#
