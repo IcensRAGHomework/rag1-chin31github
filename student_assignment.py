@@ -128,5 +128,4 @@ def demo(question):
 
 #2024年台灣10月紀念日有哪些?
 #generate_hw01(sys.argv[1])
-
-generate_hw02(sys.argv[1])
+#generate_hw02(sys.argv[1])
