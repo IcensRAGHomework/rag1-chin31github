@@ -45,14 +45,14 @@ def generate_hw01(question):
     return json.dumps(result, ensure_ascii=False, indent=2)
     pass
     
-import asyncio
-from googletrans import Translator
-
-async def translate_text(question):
-    async with Translator() as translator:
-        result = await translator.translate(question, dest='zh-tw')
-        #print(result)
-        return result.text
+#import asyncio
+#from googletrans import Translator
+#
+#async def translate_text(question):
+#    async with Translator() as translator:
+#        result = await translator.translate(question, dest='zh-tw')
+#        #print(result)
+#        return result.text
         
 def get_holidays(api_key, country, year, month, target_language="zh-CN"):
     url = "https://calendarific.com/api/v2/holidays"
@@ -73,11 +73,11 @@ def get_holidays(api_key, country, year, month, target_language="zh-CN"):
         #4holidays = [{"date": holiday["date"]["iso"], "name": holiday["name"]} for holiday in holidays_data]
         #4return {"Result": holidays}
         holidays_data = response.json().get('response', {}).get('holidays', [])
-        translator = Translator()
+        #translator = Translator()
         holidays = []
         for holiday in holidays_data:
-            translated_name = asyncio.run(translate_text(holiday["name"]))
-            holidays.append({"date": holiday["date"]["iso"], "name": translated_name})
+            #translated_name = asyncio.run(translate_text(holiday["name"]))
+            holidays.append({"date": holiday["date"]["iso"], "name": holiday["name"]})
         return {"Result": holidays}
     else:
         return {"error": "Failed to fetch holidays"}
